@@ -1,0 +1,46 @@
+#include <pitches.h>
+
+int buzzerPin = 11;
+
+void setup() {
+
+  pinMode(2, OUTPUT); //Subtract one from pin number for cylinder number
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+
+  pinMode(buzzerPin, OUTPUT);
+}
+void loop() {
+
+  int x;
+  int delayTime;
+  int sensorPin = A0; //Potentiometer
+  int sensorValue;
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+
+  // Blink all spark plug LEDs in Ford Pinto I4 firing order.
+  // 1-3-4-2
+  digitalWrite(2, HIGH);
+  delay(delayTime);
+  digitalWrite(2, LOW);
+  tone(buzzerPin, 100, 10);
+
+  digitalWrite(4, HIGH);
+  delay(delayTime);
+  digitalWrite(4, LOW);
+  tone(buzzerPin, 100, 10);
+
+  digitalWrite(5, HIGH);
+  delay(delayTime);
+  digitalWrite(5, LOW);
+  tone(buzzerPin, 100, 10);
+
+  digitalWrite(3, HIGH);
+  delay(delayTime);
+  digitalWrite(3, LOW);
+  tone(buzzerPin, 100, 10);
+}
