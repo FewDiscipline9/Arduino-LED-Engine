@@ -1,0 +1,96 @@
+#include <pitches.h>
+
+int buzzerPin = 11;
+
+const int SW_pin = 8; // digital pin connected to switch output
+const int Y_pin = A0; // analog pin connected to X output
+
+void setup() {
+
+  pinMode(SW_pin, INPUT);
+  digitalWrite(SW_pin, HIGH);
+
+  pinMode(2, OUTPUT); //Subtract one from pin number for cylinder number
+  pinMode(3, OUTPUT);
+  pinMode(4, OUTPUT);
+  pinMode(5, OUTPUT);
+  pinMode(6, OUTPUT);
+  pinMode(7, OUTPUT);
+  pinMode(buzzerPin, OUTPUT);
+}
+void loop() {
+
+  int x;
+  int delayTime;
+  int sensorPin = A0; //Joystick
+  int sensorValue;
+  int sound;
+  
+  // blink all spark plug LEDs in VR38DETT firing order.
+  // 1-2-3-4-5-6
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(2, HIGH);
+  delay(delayTime);
+  digitalWrite(2, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(3, HIGH);
+  delay(delayTime);
+  digitalWrite(3, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(4, HIGH);
+  delay(delayTime);
+  digitalWrite(4, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(5, HIGH);
+  delay(delayTime);
+  digitalWrite(5, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(6, HIGH);
+  delay(delayTime);
+  digitalWrite(6, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+  digitalWrite(7, HIGH);
+  delay(delayTime);
+  digitalWrite(7, LOW);
+  tone(buzzerPin, sound, 50);
+
+  sensorValue = analogRead(sensorPin);
+  x = (sensorValue / 4);
+  delayTime = (x);
+  sound = 60.2-0.02 * sensorValue;
+
+}
